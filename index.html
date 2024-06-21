@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Monolítico</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .page {
+            height: 100vh;
+            padding: 70px;
+            margin: 0px;
+        }
+
+        
+         #clock {
+              font-family: sans-serif;
+              font-size: 48px; /* Ajuste o tamanho da fonte */
+              text-align: center;
+              margin: 100px auto; /* Centralize o relógio na página */
+            }
+        
+      
+
+        /* Container dos Cards */
+        .cards-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        /* Card Individual */
+        .card {
+            width: 300px;
+            height: 400px;
+            margin: 40px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 50px;
+        }
+
+        /* Título do Card */
+        .card h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        /* Conteúdo do Card */
+        .card p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /*estilos da calculadora */
+        
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        .display {
+            width: 100%;
+            height: 50px;
+            background-color: #eee;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 20px;
+            text-align: right;
+            padding: 10px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            width: 50px;
+            height: 50px;
+            background-color: #ddd;
+            border: 1px solid #ccc;
+            margin: 5px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .operator {
+            background-color: #f0f0f0;
+        }
+
+        .equal {
+            width: 100px;
+            background-color: #3399ff;
+            color: #fff;
+        }
+
+    </style>
+
+    
+
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#" style="font-family: 'Times New Roman', Times, serif; color: rgb(135, 141, 141); font-style: italic; font-size: 30px;">Logomarca</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#clock">Relógio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#grafico">Gráfico</a></li>
+                <li class="nav-item"><a class="nav-link" href="#page1">Página 1</a></li>
+                <li class="nav-item"><a class="nav-link" href="#page2">Página 2</a></li>
+                <li class="nav-item"><a class="nav-link" href="#page3">Página 3</a></li>
+                <li class="nav-item"><a class="nav-link" href="#page4">Página 4</a></li>
+                <li class="nav-item"><a class="nav-link" href="#page5">Página 5</a></li>
+                <li class="nav-item"><a class="nav-link" href="#page6">Página 6</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <div id="clock" style="background-color: rgb(47, 167, 167);">
+
+
+            <script>
+                function updateTime() {
+                const date = new Date();
+                const hours = date.getHours().toString().padStart(2, '0');
+                const minutes = date.getMinutes().toString().padStart(2, '0');
+                const seconds = date.getSeconds().toString().padStart(2, '0');
+
+                const clockTime = `${hours}:${minutes}:${seconds}`;
+
+                document.getElementById('clock').textContent = clockTime;
+                }
+
+                setInterval(updateTime, 1000); // Atualiza o relógio a cada segundo
+            </script>
+        
+    </div>
+    <!-- gráfico completo -->
+    <Div style="margin: 15%;" id="grafico">
+        <h1>Exemplo de Gráfico</h1>
+        <canvas id="myChart"></canvas>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <script>
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var data = {
+            labels: ['Mês 1', 'Mês 2', 'Mês 3', 'Mês 4', 'Mês 5', 'Mês 6','Mês 7' ],
+            datasets: [{
+                label: 'Dados Exemplo',
+                data: [10, 20, 30, 50, 70, 60, 90],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+                
+            }]
+            };
+        
+            var chart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: {
+                scales: {
+                yAxes: [{
+                    ticks: {
+                    beginAtZero: true
+                    }
+                }]
+                }
+            }
+            });
+        </script>
+    </Div>
+
+    <!-- Conteúdo das Páginas -->
+    <div id="page1" class="page bg-primary text-white">
+        <h1>Página 1</h1>
+        <p>Conteúdo da Página 1.</p>
+
+
+    </div>
+
+    <div id="page2" class="page bg-secondary text-white">
+        <h1>Página 2</h1>
+        <p>Conteúdo da Página 2.</p>
+    </div>
+
+    <div id="page3" class="page bg-success text-white">
+        <h1>Página 3</h1>
+        <p>Conteúdo da Página 3.</p>
+    </div>
+
+    <!-- Conteúdo das Páginas -->
+    <div id="page4" class="page bg-primary text-white">
+        <h1>Página 4</h1>
+        <p>Conteúdo da Página 1.</p>
+    </div>
+
+    <div id="page5" class="page bg-secondary text-white">
+        <h1>Página 5</h1>
+        <p>Conteúdo da Página 2.</p>
+    </div>
+
+    <div id="page6" class="page bg-success text-white">
+        <h1>Página 6</h1>
+        <p>Conteúdo da Página 3.</p>
+
+        
+
+    </div>
+
+    <div class="cards-container" style="padding: 30px;">
+        <div class="card">
+            <h2>Título do Card 1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et lectus id enim bibendum tincidunt at sit amet velit. Sed at mauris a quam luctus tincidunt. Donec eget quam vel augue faucibus elementum. Maecenas</p>
+        </div>
+
+        <div class="card">
+            <h2>Título do Card 2</h2>
+            <p>Nulla facilisi. Nam non sapien ac urna laoreet mattis. In hac habitasse platea dictumst. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed non justo ac lectus dictum var</p>
+        </div>
+
+        <div class="card">
+            <h2>Título do Card 3</h2>
+            <p>Donec ac augue sit amet mauris aliquam tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed eget quam vel augue faucibus elementum. Maecenas sit amet libero vitae justo.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="display"></div>
+        <div class="buttons">
+            <div class="button" onclick="appendNumber('7')">7</div>
+            <div class="button" onclick="appendNumber('8')">8</div>
+            <div class="button" onclick="appendNumber('9')">9</div>
+            <div class="button operator" onclick="appendOperator('+')">+</div>
+            <br>
+            <div class="button" onclick="appendNumber('4')">4</div>
+            <div class="button" onclick="appendNumber('5')">5</div>
+            <div class="button" onclick="appendNumber('6')">6</div>
+            <div class="button operator" onclick="appendOperator('-')">-</div>
+            <br>
+            <div class="button" onclick="appendNumber('1')">1</div>
+            <div class="button" onclick="appendNumber('2')">2</div>
+            <div class="button" onclick="appendNumber('3')">3</div>
+            <div class="button operator" onclick="appendOperator('*')">*</div>
+            <br>
+            <div class="button" onclick="appendNumber('0')">0</div>
+            <div class="button" onclick="clearDisplay()">C</div>
+            <div class="button" onclick="backspace()">←</div>
+            <div class="button equal" onclick="calculate()">=</div>
+        </div>
+
+        <script>
+            let display = document.querySelector('.display');
+        let currentNumber = '';
+        let previousNumber = '';
+        let operator = '';
+
+        function appendNumber(number) {
+            currentNumber += number;
+            updateDisplay();
+        }
+
+        function appendOperator(op) {
+            if (currentNumber !== '') {
+                calculate();
+            }
+            operator = op;
+            previousNumber = currentNumber;
+            currentNumber = '';
+        }
+
+        function calculate() {
+            if (currentNumber !== '' && previousNumber !== '') {
+                let result = eval(previousNumber + operator + currentNumber);
+                previousNumber = result;
+                currentNumber = '';
+                operator = '';
+                updateDisplay();
+            }
+        }
+        </script>
+
+
+
+    
+
+    <!-- Scripts do Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
